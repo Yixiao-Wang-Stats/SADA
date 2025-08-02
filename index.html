@@ -114,16 +114,13 @@
     We introduce 
     <span style="background: linear-gradient(to right, #e53935, #8e24aa, #1e88e5, #8e24aa, #f06292, #ffb74d); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight:bold;">
       Stability-guided Adaptive Diffusion Acceleration (SADA)
-    </span>, a <b>training-free</b> paradigm that adaptively accelerates ODE-based generative models such as diffusion and flow-matching. By leveraging trajectory gradients from numerical solvers, <span style="
-  background: linear-gradient(to right, #e53935, #8e24aa, #1e88e5, #8e24aa, #f06292, #ffb74d);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: bold;">
-  SADA
-</span> dynamically exploits <b>step-wise</b> and <b>token-wise sparsity</b> with error-bounded approximation—bridging sampling dynamics with sparsity-aware optimization.
-    <br><br>
-    Our method achieves consistent <b>≥ 1.8× speedups</b> on <b>SD-2</b>, <b>SDXL</b>, and <b>Flux</b> across both <b>EDM</b> and <b>DPM++</b> solvers, all with <b>LPIPS ≤ 0.10</b> and <b>FID ≤ 4.5</b>. Moreover, SADA generalizes across modalities, reaching ∼ 1.81× acceleration on <b>MusicLDM</b> and ∼ 1.41× on <b>ControlNet</b> — all without fine-tuning.
+    </span>, a <b>training-free</b> paradigm that accelerates sampling in diffusion and flow models by dynamically exploiting step-wise and token-wise sparsity. Our method achieves consistent <b>≥ 1.8× speedups</b> on <b>SD-2</b>, <b>SDXL</b>, and <b>Flux</b> across <b>EDM</b> and <b>DPM++</b> solvers, all with <b>LPIPS ≤ 0.10</b> and <b>FID ≤ 4.5</b>. Moreover, 
+    <span style="background: linear-gradient(to right, #e53935, #8e24aa, #1e88e5, #8e24aa, #f06292, #ffb74d); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight:bold;">
+      SADA
+    </span> generalizes across modalities—achieving ∼ 1.81× acceleration on <b>MusicLDM</b> and ∼ 1.41× on <b>ControlNet</b>—without any fine-tuning.
   </p>
+
+
   
   <!-- ================= DEMO ================= -->
   <section class="hero is-small">
