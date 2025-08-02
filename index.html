@@ -140,7 +140,9 @@
 
     <div class="content">
       <p>
-        Diffusion models are powerful but notoriously slow due to hundreds of iterative denoising steps and quadratic attention. Existing training-free accelerators often apply fixed sparsity patterns, which fail to adapt to prompt-specific denoising dynamics and lead to low faithfulness. <b>SADA</b> addresses this by introducing a unified <b>stability-guided criterion</b> that dynamically adjusts step-wise and token-wise sparsity based on the actual sampling trajectory.
+        Diffusion models are powerful but notoriously slow due to hundreds of iterative denoising steps and quadratic attention. Existing training-free accelerators often apply fixed sparsity patterns, which fail to adapt to prompt-specific denoising dynamics and lead to low faithfulness. <span style="background: linear-gradient(to right, #e53935, #8e24aa, #1e88e5, #8e24aa, #f06292, #ffb74d); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight:bold;">
+      SADA
+    </span> addresses this by introducing a unified <b>stability-guided criterion</b> that dynamically adjusts step-wise and token-wise sparsity based on the actual sampling trajectory.
       </p>
     </div>
 
@@ -160,7 +162,9 @@
 
     <div class="content">
       <p>
-        <b>SADA can be plugged into any Diffusers-based pipeline with a single line of code</b>. At each step, we check stability conditions from the ODE solver to decide whether to reuse cached outputs or perform fresh model evaluation. This enables adaptive acceleration with minimal overhead and strong compatibility with existing solvers like DPM++ and EDM.
+        <b><span style="background: linear-gradient(to right, #e53935, #8e24aa, #1e88e5, #8e24aa, #f06292, #ffb74d); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight:bold;">
+      SADA
+    </span> can be plugged into any Diffusers-based pipeline with a single line of code</b>. At each step, we check stability conditions from the ODE solver to decide whether to reuse cached outputs or perform fresh model evaluation. This enables adaptive acceleration with minimal overhead and strong compatibility with existing solvers like DPM++ and EDM.
       </p>
     </div>
 
