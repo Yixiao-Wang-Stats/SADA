@@ -132,6 +132,56 @@
     </div>
   </section>
 
+
+  <section class="section" id="motivation">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered" style="margin-bottom:1.5em;">
+      Motivation
+    </h2>
+
+    <div class="columns is-vcentered">
+      <!-- Left: Text -->
+      <div class="column is-half">
+        <p style="font-size:1.05em; line-height:1.7;">
+          Despite their impressive generative performance, diffusion models remain expensive to deploy due to:
+        </p>
+        <ul style="font-size:1.05em; line-height:1.7; padding-left:1.2em;">
+          <li>🌀 <b>High sampling cost</b> from hundreds of iterative denoising steps.</li>
+          <li>⚠️ <b>Low faithfulness</b> in existing training-free accelerators due to fixed sparsity rules.</li>
+        </ul>
+        <br>
+        <p style="font-size:1.05em; line-height:1.7;">
+          We identify two key limitations in prior work:
+        </p>
+        <ul style="font-size:1.05em; line-height:1.7; padding-left:1.2em;">
+          <li><b>(a)</b> Fixed acceleration patterns cannot adapt to each prompt's unique denoising trajectory.</li>
+          <li><b>(b)</b> Existing methods ignore the underlying <b>ODE formulation</b> and solver structure.</li>
+        </ul>
+        <br>
+        <p style="font-size:1.05em; line-height:1.7;">
+          To address both, 
+          <span style="background: linear-gradient(to right, #e53935, #8e24aa, #1e88e5, #8e24aa, #f06292, #ffb74d); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight:bold;">
+            SADA
+          </span>
+          introduces a unified <b>stability-guided criterion</b> for:
+        </p>
+        <ul style="font-size:1.05em; line-height:1.7; padding-left:1.2em;">
+          <li>✅ Adaptive step-wise and token-wise sparsity.</li>
+          <li>✅ Error-bounded approximation based on solver gradient.</li>
+        </ul>
+      </div>
+
+      <!-- Right: Figure -->
+      <div class="column is-half has-text-centered">
+        <img src="static/images/method.png" alt="Dual Approximation Diagram" style="max-width:100%; border-radius:12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+        <p style="font-size:0.95em; margin-top:0.5em;"><i>Figure: SADA dynamically selects step-wise or multistep-wise approximations based on stability, with fidelity refinement.</i></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  
   <!-- ================= INSTALL ================= -->
   <section class="section">
     <div class="container is-max-desktop">
