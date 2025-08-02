@@ -147,9 +147,9 @@
     </div>
 
     <div class="has-text-centered" style="margin-top:2em;">
-      <img src="static/images/motivation.png" alt="SADA Motivation Diagram" style="max-width:600px; width:75%;">
+      <img src="static/images/motivation.png" alt="SADA Motivation Diagram" style="max-width:500px; width:65%;">
       <p style="font-size:0.95em; margin-top:0.5em;">
-        <i>Figure: SADA adapts sparsity based on its ODE trajectory to preserve fidelity during sampling.</i>
+        <i>Figure 1. SADA adapts sparsity based on its ODE trajectory to preserve fidelity during sampling.</i>
       </p>
     </div>
 
@@ -170,15 +170,37 @@
     </div>
 
     <div class="has-text-centered" style="margin-top:2em;">
-      <img src="static/images/main.png" alt="SADA Main Implementation Diagram" style="max-width:700px;width:100%;">
+      <img src="static/images/main.png" alt="SADA Main Implementation Diagram" style="max-width:1000px; width:95%;">
       <p style="font-size:0.95em; margin-top:0.5em;">
-        <i>Figure: SADA pipeline checks stability per step to enable dynamic skipping and reuse.</i>
+        <i><b>Figure 2.</b> Overview paradigm of <b>SADA</b>. The sparsity mode (middle: <code>step-wise</code>, bottom: <code>token-wise</code>) at timestep <i>t – 1</i> is adaptively identified by the stability Criterion after fresh computation at timestep <i>t</i>. Note that “DP” in the pipeline stands for “Data Prediction”. <b>Right:</b> Visualization of SADA and baseline methods’ performance in terms of faithfulness and efficiency. Our method significantly outperforms existing baselines {<code>DeepCache</code>, <code>AdaptiveDiffusion</code>} on both metrics, using {<code>SD-2</code> (Top), <code>SDXL</code> (Bottom)} with DPM-solver++ 50 steps.</i>
       </p>
     </div>
   </div>
 </section>
 
 
+<!-- ================= RESULTS ================= -->
+<section class="section" id="results">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Quantitative Results</h2>
+
+    <!-- Table 1: Main Results -->
+    <div class="has-text-centered" style="margin-top:2em;">
+      <img src="static/images/table_main.png" alt="Quantitative Results Table" style="max-width:800px; width:90%;">
+      <p style="font-size:0.95em; margin-top:0.5em;">
+        <b>Table 1.</b> Quantitative results on MS-COCO 2017 (Lin et al., 2014).
+      </p>
+    </div>
+
+    <!-- Table 2: Ablation Study -->
+    <div class="has-text-centered" style="margin-top:3em;">
+      <img src="static/images/table_abla.png" alt="Ablation Study Table" style="max-width:800px; width:90%;">
+      <p style="font-size:0.95em; margin-top:0.5em;">
+        <b>Table 2.</b> Ablation study on few-step sampling across schedulers. Results on MS-COCO 2017.
+      </p>
+    </div>
+  </div>
+</section>
 
   
   <!-- ================= INSTALL ================= -->
