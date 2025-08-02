@@ -140,41 +140,39 @@
 
     <div class="content">
       <p>
-        Despite their impressive generative performance, diffusion models remain expensive to deploy due to:
+        Diffusion models are powerful but notoriously slow due to hundreds of iterative denoising steps and quadratic attention. Existing training-free accelerators often apply fixed sparsity patterns, which fail to adapt to prompt-specific denoising dynamics and lead to low faithfulness. <b>SADA</b> addresses this by introducing a unified <b>stability-guided criterion</b> that dynamically adjusts step-wise and token-wise sparsity based on the actual sampling trajectory.
       </p>
-      <ul>
-        <li>🌀 <b>High sampling cost</b> from hundreds of iterative denoising steps.</li>
-        <li>⚠️ <b>Low faithfulness</b> in existing training-free accelerators due to fixed sparsity rules.</li>
-      </ul>
-
-      <p>
-        We identify two key limitations in prior work:
-      </p>
-      <ul>
-        <li><b>(a)</b> Fixed acceleration patterns cannot adapt to each prompt’s unique denoising trajectory.</li>
-        <li><b>(b)</b> Existing methods ignore the underlying <b>ODE formulation</b> and solver structure.</li>
-      </ul>
-
-      <p>
-        To address both, 
-        <span style="background: linear-gradient(to right, #e53935, #8e24aa, #1e88e5, #8e24aa, #f06292, #ffb74d); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight:bold;">
-          SADA
-        </span> introduces a unified <b>stability-guided criterion</b> for:
-      </p>
-      <ul>
-        <li>✅ Adaptive step-wise and token-wise sparsity.</li>
-        <li>✅ Error-bounded approximation based on solver gradient.</li>
-      </ul>
     </div>
 
     <div class="has-text-centered" style="margin-top:2em;">
-      <img src="static/images/motivation.png" alt="Dual Approximation Diagram" style="max-width:700px;width:90%;">
+      <img src="static/images/motivation.png" alt="SADA Motivation Diagram" style="max-width:700px;width:90%;">
       <p style="font-size:0.95em; margin-top:0.5em;">
-        <i>Figure: SADA dynamically selects step-wise or multistep-wise approximations based on stability, with fidelity refinement.</i>
+        <i>Figure: SADA adapts sparsity based on prompt-specific stability during sampling.</i>
       </p>
     </div>
   </div>
 </section>
+
+<!-- ================= IMPLEMENTATION ================= -->
+<section class="section" id="implementation">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Implementation</h2>
+
+    <div class="content">
+      <p>
+        <b>SADA can be plugged into any Diffusers-based pipeline with a single line of code</b>. At each step, we check stability conditions from the ODE solver to decide whether to reuse cached outputs or perform fresh model evaluation. This enables adaptive acceleration with minimal overhead and strong compatibility with existing solvers like DPM++ and EDM.
+      </p>
+    </div>
+
+    <div class="has-text-centered" style="margin-top:2em;">
+      <img src="static/images/main.png" alt="SADA Main Implementation Diagram" style="max-width:700px;width:90%;">
+      <p style="font-size:0.95em; margin-top:0.5em;">
+        <i>Figure: SADA pipeline checks stability per step to enable dynamic skipping and reuse.</i>
+      </p>
+    </div>
+  </div>
+</section>
+
 
 
   
