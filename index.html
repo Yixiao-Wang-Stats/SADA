@@ -121,16 +121,14 @@
   background: linear-gradient(to right, #7b7bff, #cf77ef, #f3a3cd, #ffb68e);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-weight: bold;
-  font-size: 1.2em;">
+  font-weight: bold;">
   SADA
 </span>), a <b>training-free</b> paradigm that accelerates sampling in diffusion and flow models by dynamically exploiting step-wise and token-wise sparsity. Our method achieves consistent <b>≥ 1.8× speedups</b> on <b>SD-2</b>, <b>SDXL</b>, and <b>Flux</b> across <b>EDM</b> and <b>DPM++</b> solvers, all with <b>LPIPS ≤ 0.10</b> and <b>FID ≤ 4.5</b>. Moreover, 
     <span style="
   background: linear-gradient(to right, #7b7bff, #cf77ef, #f3a3cd, #ffb68e);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-weight: bold;
-  font-size: 1.2em;">
+  font-weight: bold;">
   SADA
 </span> generalizes across modalities—achieving ∼ 1.81× acceleration on <b>MusicLDM</b> and ∼ 1.41× on <b>ControlNet</b>—without any fine-tuning.
   </p>
@@ -155,9 +153,13 @@
 
     <div class="content">
       <p>
-        Diffusion models are powerful but notoriously slow due to hundreds of iterative denoising steps and quadratic attention. Existing training-free accelerators often apply fixed sparsity patterns, which fail to adapt to prompt-specific denoising dynamics and lead to low faithfulness. <span style="background: linear-gradient(to right, #e53935, #8e24aa, #1e88e5, #8e24aa, #f06292, #ffb74d); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight:bold;">
-      SADA
-    </span> addresses this by introducing a unified <b>stability-guided criterion</b> that dynamically adjusts step-wise and token-wise sparsity based on the actual sampling trajectory.
+        Diffusion models are powerful but notoriously slow due to hundreds of iterative denoising steps and quadratic attention. Existing training-free accelerators often apply fixed sparsity patterns, which fail to adapt to prompt-specific denoising dynamics and lead to low faithfulness. <span style="
+  background: linear-gradient(to right, #7b7bff, #cf77ef, #f3a3cd, #ffb68e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;">
+  SADA
+</span>addresses this by introducing a unified <b>stability-guided criterion</b> that dynamically adjusts step-wise and token-wise sparsity based on the actual sampling trajectory.
       </p>
     </div>
 
@@ -178,9 +180,13 @@
 
     <div class="content">
       <p>
-        <b><span style="background: linear-gradient(to right, #e53935, #8e24aa, #1e88e5, #8e24aa, #f06292, #ffb74d); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight:bold;">
-      SADA
-    </span> can be plugged into any Diffusers-based pipeline with a single line of code</b>. At each step, we check stability conditions from the ODE solver to decide whether to reuse cached outputs or perform fresh model evaluation. This enables adaptive acceleration with minimal overhead and strong compatibility with existing solvers like DPM++ and EDM.
+        <b><span style="
+  background: linear-gradient(to right, #7b7bff, #cf77ef, #f3a3cd, #ffb68e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;">
+  SADA
+</span>can be plugged into any Diffusers-based pipeline with a single line of code</b>. At each step, we check stability conditions from the ODE solver to decide whether to reuse cached outputs or perform fresh model evaluation. This enables adaptive acceleration with minimal overhead and strong compatibility with existing solvers like DPM++ and EDM.
       </p>
     </div>
 
@@ -199,23 +205,24 @@
   <div class="container is-max-desktop">
     <h2 class="title is-3">Quantitative Results</h2>
 
-    <!-- Table 1: Main Results -->
+    <!-- Table 1: Main Results with header on top -->
     <div class="has-text-centered" style="margin-top:2em;">
-      <img src="static/images/table_main.png" alt="Quantitative Results Table" style="max-width:800px; width:90%;">
-      <p style="font-size:0.95em; margin-top:0.5em;">
+      <p style="font-size:0.95em; margin-bottom:0.5em;">
         <b>Table 1.</b> Quantitative results on MS-COCO 2017 (Lin et al., 2014).
       </p>
+      <img src="static/images/table_main.png" alt="Quantitative Results Table" style="max-width:800px; width:90%;">
     </div>
 
-    <!-- Table 2: Ablation Study -->
+    <!-- Table 2: Ablation Study with header on top and smaller size -->
     <div class="has-text-centered" style="margin-top:3em;">
-      <img src="static/images/table_abla.png" alt="Ablation Study Table" style="max-width:800px; width:90%;">
-      <p style="font-size:0.95em; margin-top:0.5em;">
-        <b>Table 2.</b> Ablation study on few-step sampling across schedulers. Results on MS-COCO 2017.
+      <p style="font-size:0.95em; margin-bottom:0.5em;">
+        <b>Table 2.</b> Ablation study of SADA with fewer steps under SD-2 and DPM++.
       </p>
+      <img src="static/images/table_abla.png" alt="Ablation Study Table" style="max-width:500px; width:65%;">
     </div>
   </div>
 </section>
+
 
   
   <!-- ================= INSTALL ================= -->
